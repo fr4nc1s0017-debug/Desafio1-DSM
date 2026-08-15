@@ -10,11 +10,12 @@ class CalculadoraActivity : AppCompatActivity() {
 
     private lateinit var etNumero1: EditText
     private lateinit var etNumero2: EditText
-
     private lateinit var btnSumar: Button
     private lateinit var btnRestar: Button
     private lateinit var btnMultiplicar: Button
     private lateinit var btnDividir: Button
+    private lateinit var btnExponente: Button
+    private lateinit var btnRaiz: Button
 
     private lateinit var tvResultado: TextView
 
@@ -29,6 +30,8 @@ class CalculadoraActivity : AppCompatActivity() {
         btnRestar = findViewById(R.id.btnRestar)
         btnMultiplicar = findViewById(R.id.btnMultiplicar)
         btnDividir = findViewById(R.id.btnDividir)
+        btnExponente = findViewById(R.id.btnExponente)
+        btnRaiz = findViewById(R.id.btnRaiz)
 
         tvResultado = findViewById(R.id.tvResultado)
 
@@ -47,6 +50,14 @@ class CalculadoraActivity : AppCompatActivity() {
         btnDividir.setOnClickListener {
             calcular('/')
         }
+
+        btnExponente.setOnClickListener {
+            calcular('^')
+        }
+
+        btnRaiz.setOnClickListener {
+            calcular('√')
+        }
     }
 
     private fun calcular(operacion: Char) {
@@ -64,6 +75,8 @@ class CalculadoraActivity : AppCompatActivity() {
             '-' -> numero1 - numero2
             '*' -> numero1 * numero2
             '/' -> numero1 / numero2
+            '^' -> Math.pow(numero1, numero2)
+            '√' -> Math.sqrt(numero1)
             else -> 0.0
         }
 

@@ -55,6 +55,18 @@
         android:layout_height="wrap_content"
         android:text="Dividir" />
 
+    <Button
+        android:id="@+id/btnExponente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exponente" />
+
+    <Button
+        android:id="@+id/btnRaiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Raíz cuadrada" />
+
     <TextView
         android:id="@+id/tvResultado"
         android:layout_width="match_parent"
