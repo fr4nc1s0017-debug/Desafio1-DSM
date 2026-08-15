@@ -19,6 +19,7 @@ class CalculadoraActivity : AppCompatActivity() {
     private lateinit var btnDividir: Button
     private lateinit var btnExponente: Button
     private lateinit var btnRaiz: Button
+    private lateinit var btnHistorial: Button
     private lateinit var tvResultado: TextView
     private lateinit var tvNumero2: TextView
 
@@ -34,11 +35,11 @@ class CalculadoraActivity : AppCompatActivity() {
         btnDividir = findViewById(R.id.btnDividir)
         btnExponente = findViewById(R.id.btnExponente)
         btnRaiz = findViewById(R.id.btnRaiz)
+
+        btnHistorial = findViewById(R.id.btnHistorial)
         tvResultado = findViewById(R.id.tvResultado)
         tvNumero2 = findViewById(R.id.tvNumero2)
 
-        // para operaciones como suma resta multiplicacion y division mostrar el segundo numero para evitar errores
-        // de logica
         btnSumar.setOnClickListener {
             mostrarSegundoNumero(true)
             calcular('+')
@@ -61,10 +62,13 @@ class CalculadoraActivity : AppCompatActivity() {
             calcular('^')
         }
 
-        // Ocultar segundo numero para raices cuadradas
         btnRaiz.setOnClickListener {
             mostrarSegundoNumero(false)
             calcular('√')
+        }
+
+        btnHistorial.setOnClickListener {
+            mostrarHistorial()
         }
     }
 
@@ -83,22 +87,28 @@ class CalculadoraActivity : AppCompatActivity() {
     private fun calcular(operacion: Char) {
         val numero1 = a.text.toString().toDoubleOrNull()
 
-        // Para raíz cuadrada, solo necesitamos el primer número
+
         if (operacion == '√') {
             if (numero1 == null) {
                 tvResultado.text = "Ingrese un número válido"
                 return
             }
             if (numero1 < 0) {
-                tvResultado.text = "No se puede calcular raíz de número negativo"
+                tvResultado.text =
+                    "No se puede calcular raíz de número negativo"
                 return
             }
-            val resultado = String.format("%.4f", sqrt(numero1))
-            tvResultado.text = "√$numero1 = $resultado"
+            val resultado = String.format(
+                "%.4f",
+                sqrt(numero1)
+            )
+            val operacionRealizada =
+                "√$numero1 = $resultado"
+            tvResultado.text = operacionRealizada
+            guardarHistorial(operacionRealizada)
             return
         }
 
-        // Para las demás operaciones (incluyendo exponente), necesitamos ambos números
         val numero2 = b.text.toString().toDoubleOrNull()
 
         if (numero1 == null || numero2 == null) {
@@ -109,31 +119,82 @@ class CalculadoraActivity : AppCompatActivity() {
         val resultado = when (operacion) {
             '+' -> {
                 val result = numero1 + numero2
-                "$numero1 + $numero2 = ${String.format("%.4f", result)}"
+
+                "$numero1 + $numero2 = ${
+                    String.format("%.4f", result)
+                }"
             }
             '-' -> {
                 val result = numero1 - numero2
-                "$numero1 - $numero2 = ${String.format("%.4f", result)}"
+
+                "$numero1 - $numero2 = ${
+                    String.format("%.4f", result)
+                }"
             }
             '*' -> {
                 val result = numero1 * numero2
-                "$numero1 × $numero2 = ${String.format("%.4f", result)}"
+
+                "$numero1 × $numero2 = ${
+                    String.format("%.4f", result)
+                }"
             }
             '/' -> {
                 if (numero2 == 0.0) {
-                    tvResultado.text = "No se puede dividir entre cero"
+                    tvResultado.text =
+                        "No se puede dividir entre cero"
                     return
                 }
                 val result = numero1 / numero2
-                "$numero1 ÷ $numero2 = ${String.format("%.4f", result)}"
+
+                "$numero1 ÷ $numero2 = ${
+                    String.format("%.4f", result)
+                }"
             }
             '^' -> {
                 val result = numero1.pow(numero2)
-                "$numero1 ^ $numero2 = ${String.format("%.4f", result)}"
-            }
-            else -> "Operación no válida"
-        }
 
+                "$numero1 ^ $numero2 = ${
+                    String.format("%.4f", result)
+                }"
+            }
+
+            else -> { "Operación no válida"
+            }
+        }
         tvResultado.text = resultado
+
+        guardarHistorial(resultado)
+    }
+    private fun guardarHistorial(operacion: String) {
+
+        openFileOutput(
+            "historial.txt",
+            MODE_APPEND
+        ).use { archivo ->
+
+            archivo.write(
+                "$operacion\n".toByteArray()
+            )
+        }
+    }
+    private fun mostrarHistorial() {
+        try {
+            val historial = openFileInput(
+                "historial.txt"
+            )
+                .bufferedReader()
+                .use { it.readText() }
+            if (historial.isBlank()) {
+
+                tvResultado.text = "No hay operaciones en el historial"
+
+            } else {
+
+                tvResultado.text = historial
+            }
+        } catch (e: Exception) {
+
+            tvResultado.text = "No hay operaciones en el historial"
+        }
     }
 }
