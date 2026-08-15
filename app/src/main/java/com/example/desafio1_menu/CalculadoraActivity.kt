@@ -74,7 +74,15 @@ class CalculadoraActivity : AppCompatActivity() {
             '+' -> numero1 + numero2
             '-' -> numero1 - numero2
             '*' -> numero1 * numero2
-            '/' -> numero1 / numero2
+            '/' -> {
+                if (numero2 == 0.0) {
+                    tvResultado.text = "No se puede dividir entre cero"
+                    return
+                }
+
+                numero1 / numero2
+            }
+
             '^' -> Math.pow(numero1, numero2)
             '√' -> Math.sqrt(numero1)
             else -> 0.0
