@@ -7,19 +7,6 @@
     android:padding="24dp">
 
     <TextView
-        android:id="@+id/textViewinvisible"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:gravity="center"
-        android:text="Calculadora xd"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        tools:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/textViewTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
@@ -27,7 +14,30 @@
         android:text="Calculadora"
         android:textSize="28sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="Calculadora"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="CALCULADORA"
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/etNumero1"
@@ -95,9 +105,9 @@
         android:id="@+id/tvResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
         android:text="Resultado:"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="24dp" />
 
 </LinearLayout>
