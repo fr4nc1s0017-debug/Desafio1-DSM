@@ -69,37 +69,49 @@
         android:id="@+id/btnSumar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sumar" />
+        android:text="Sumar"
+        android:drawableStart="@drawable/ic_suma"
+        android:drawablePadding="8dp" />
 
     <Button
         android:id="@+id/btnRestar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Restar" />
+        android:text="Restar"
+        android:drawableStart="@drawable/ic_resta"
+        android:drawablePadding="8dp" />
 
     <Button
         android:id="@+id/btnMultiplicar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Multiplicar" />
+        android:text="Multiplicar"
+        android:drawableStart="@drawable/ic_multiplicacion"
+        android:drawablePadding="8dp" />
 
     <Button
         android:id="@+id/btnDividir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dividir" />
+        android:text="Dividir"
+        android:drawableStart="@drawable/ic_division"
+        android:drawablePadding="8dp" />
 
     <Button
         android:id="@+id/btnExponente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Exponente" />
+        android:text="Exponente"
+        android:drawableStart="@drawable/ic_expponente"
+        android:drawablePadding="8dp" />
 
     <Button
         android:id="@+id/btnRaiz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Raíz cuadrada" />
+        android:text="Raíz cuadrada"
+        android:drawableStart="@drawable/ic_raiz_cuadrada"
+        android:drawablePadding="8dp" />
 
     <TextView
         android:id="@+id/tvResultado"
