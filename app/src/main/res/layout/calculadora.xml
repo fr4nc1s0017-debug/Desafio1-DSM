@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="24dp">
 
     <TextView
+        android:id="@+id/textViewinvisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
+        android:text="Calculadora xd"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:gravity="center"
         android:text="Calculadora"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="32dp" />
+        tools:visibility="invisible" />
 
     <EditText
         android:id="@+id/etNumero1"
@@ -23,6 +37,15 @@
         android:inputType="numberDecimal|numberSigned"
         android:layout_marginBottom="16dp" />
 
+
+    <TextView
+        android:id="@+id/tvNumero2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Segundo número:"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
     <EditText
         android:id="@+id/etNumero2"
         android:layout_width="match_parent"
@@ -31,6 +54,7 @@
         android:inputType="numberDecimal|numberSigned"
         android:layout_marginBottom="24dp" />
 
+    <!-- El resto de tus botones y TextView -->
     <Button
         android:id="@+id/btnSumar"
         android:layout_width="match_parent"
@@ -71,9 +95,9 @@
         android:id="@+id/tvResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Resultado:"
-        android:textSize="20sp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
-        android:layout_marginTop="24dp" />
+        android:text="Resultado:"
+        android:textSize="20sp" />
 
 </LinearLayout>
