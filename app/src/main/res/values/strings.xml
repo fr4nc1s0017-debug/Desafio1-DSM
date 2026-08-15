@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">DEsafio1-Menu</string>
+
+    <string name="titulo_promedio">PROMEDIO DE NOTAS</string>
+
+    <string name="hint_estudiante">Nombre del estudiante</string>
+    <string name="hint_nota1">Nota 1 (0-10)</string>
+    <string name="hint_nota2">Nota 2 (0-10)</string>
+    <string name="hint_nota3">Nota 3 (0-10)</string>
+    <string name="hint_nota4">Nota 4 (0-10)</string>
+    <string name="hint_nota5">Nota 5 (0-10)</string>
+
+
+    <string name="btn_calcular">Calcular Promedio</string>
+
+
+    <string name="resultado_promedio">Promedio total:</string>
+
+    <!-- Mensajes de error -->
+    <string name="error_nombre">Ingrese el nombre del estudiante</string>
+    <string name="error_notas">Ingrese todas las notas</string>
+    <string name="error_rango">Las notas deben estar entre 0 y 10</string>
+
+    <!-- Formato resultado -->
+    <string name="resultado_formato">Estudiante: %s\nPromedio: %s\nEstado: %s</string>
+
+    <!-- Estados -->
+    <string name="estado_aprobado">APROBADO</string>
+    <string name="estado_reprobado">REPROBADO</string>
+
+    <!-- Notificación -->
+    <string name="notificacion_titulo">Resultado de Promedio</string>
+    <string name="notificacion_texto">%s ha %s con promedio de %s</string>
+
 </resources>
